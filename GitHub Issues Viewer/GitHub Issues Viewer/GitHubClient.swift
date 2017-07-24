@@ -57,13 +57,24 @@ class GitHubClient {
                 // Parse the array of dictionaries to get the important information that you
                 // need to present to the user
                 
+                // - Attributions: https://developer.apple.com/documentation/foundation/dateformatter
+                let formatter = DateFormatter()
+                formatter.dateStyle = .medium
+                formatter.timeStyle = .medium
+                
+                // - Attributions: https://developer.apple.com/documentation/foundation/iso8601dateformatter
+                let isoFormatter = ISO8601DateFormatter()
+                
                 // Do some parsing here
                 DispatchQueue.main.async {
                     
                     self.ghIssues = issues.map {
                         var issue = $0
                         let status = issue["state"] as! String == "open" ? Issue.GitHubStatus.open : Issue.GitHubStatus.closed
-                        return Issue(title: issue["title"] as! String, owner: issue["user"]?["login"] as! String, createdAt: issue["created_at"] as! String, status: status, post: issue["body"] as! String, link: issue["html_url"] as! String)!
+                        
+                        let date = isoFormatter.date(from: issue["created_at"] as! String)
+                        let dateString = formatter.string(from: date!)
+                        return Issue(title: issue["title"] as! String, owner: issue["user"]?["login"] as! String, createdAt: dateString, status: status, post: issue["body"] as! String, link: issue["html_url"] as! String)!
                     }
                     completion(self.ghIssues)
                 }
