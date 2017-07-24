@@ -16,4 +16,5 @@ In the first two tabs, any issue in the table can be clicked on and will present
 ## Attributions
 
 * Issue Table View Controller
+
 ** [UIRefreshControl help](https://cocoacasts.com/how-to-add-pull-to-refresh-to-a-table-view-or-collection-view/)
