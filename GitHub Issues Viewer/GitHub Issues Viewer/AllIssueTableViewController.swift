@@ -46,9 +46,7 @@ class AllIssueTableViewController: UITableViewController {
             self.refreshControl?.endRefreshing()
         }
         
-        gitHubClient.requestIssues(state: "all") { (issues: [Issue]) in
-            populateAllIssues(issues)
-        }
+        gitHubClient.requestIssues(state: "all", completion: populateAllIssues(_:))
     }
     
     // MARK: Table view overrides
@@ -68,7 +66,6 @@ class AllIssueTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? AllIssueTableViewCell else {
             fatalError("The dequeued cell is not an instance of IssueTableViewCell.")
         }
-        
         
         let issue = allIssues[indexPath.row]
         

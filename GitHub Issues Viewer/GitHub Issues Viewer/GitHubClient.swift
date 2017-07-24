@@ -27,11 +27,9 @@ class GitHubClient {
         
         let session = URLSession.shared
         
-        print("about to make call to \(urlString)")
         let task = session.dataTask(with: url as URL, completionHandler: { (data, response, error) -> Void in
-            print("made call")
             
-            //print("Response: \(String(describing: response))")
+            print("Response: \(String(describing: response))")
             
             guard ((response as! HTTPURLResponse).statusCode == 200) else {
                 fatalError("Received bad response from server")
@@ -41,19 +39,13 @@ class GitHubClient {
                 fatalError("Error: \(error!.localizedDescription)")
             }
             
-            print("Raw data: \(String(describing: data))")
-            var testString = ""
-            
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
-                //print(json)
                 
                 guard let issues = json as? [[String: AnyObject]] else {
                     fatalError("We couldn't cast the JSON to an array of dictionaries")
                 }
                 
-                testString = issues[0]["title"] as! String
-                print(testString)
                 // Parse the array of dictionaries to get the important information that you
                 // need to present to the user
                 
@@ -65,7 +57,6 @@ class GitHubClient {
                 // - Attributions: https://developer.apple.com/documentation/foundation/iso8601dateformatter
                 let isoFormatter = ISO8601DateFormatter()
                 
-                // Do some parsing here
                 DispatchQueue.main.async {
                     
                     self.ghIssues = issues.map {
@@ -86,6 +77,5 @@ class GitHubClient {
 
         })
         task.resume()
-        //return gitHubInfo
     }
 }

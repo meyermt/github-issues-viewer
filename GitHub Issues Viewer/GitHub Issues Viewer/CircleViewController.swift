@@ -17,7 +17,6 @@ class CircleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         loadIssues()
     }
 
@@ -34,17 +33,12 @@ class CircleViewController: UIViewController {
             self.allIssues = issues
             self.drawCircle()
         }
-        
-        
-        gitHubClient.requestIssues(state: "all") { (issues: [Issue]) in
-            populateAllIssues(issues)
-        }
+        gitHubClient.requestIssues(state: "all", completion: populateAllIssues(_:))
     }
     
     // - Attributions: https://stackoverflow.com/questions/40555462/how-to-draw-a-circle-in-swift-3
     private func drawCircle() {
         
-        //let circleView = UIView()
         let colorArray: [UIColor] = [UIColor.green, UIColor.white, UIColor.red, UIColor.white]
         var x = 300.0
         var y = 300.0
@@ -72,15 +66,22 @@ class CircleViewController: UIViewController {
             }
         }
         
-        let labelText = "\(openIssues) Open Issues \(closedIssues) Closed Issues"
-        print("open issues: \(openIssues)")
-        
-        let label = UILabel()
-        label.text = labelText
+        let labelTextOpen = "\(openIssues) Open Issues"
+        setUpLabel(text: labelTextOpen, color: .red, y: 275.0)
+        let labelTextClosed = "\(closedIssues) Closed Issues"
+        setUpLabel(text: labelTextClosed, color: .green, y: 375.0)
+    }
+    
+    private func setUpLabel(text: String, color: UIColor, y: Double) {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+        label.text = text
+        label.font = label.font.withSize(40)
+        label.textAlignment = .center
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
-        label.center = self.view.center
-        label.textColor = .red
+        label.center = CGPoint(x: 187.5, y: y)
+        label.textColor = color
+        label.isHidden = false
         
         self.view.addSubview(label)
     }

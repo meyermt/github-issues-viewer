@@ -11,6 +11,7 @@ import UIKit
 class IssueDetailViewController: UIViewController {
     
     // MARK: Properties
+    
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var issueTitle: UILabel!
     @IBOutlet weak var issueOwner: UILabel!
@@ -19,7 +20,6 @@ class IssueDetailViewController: UIViewController {
     @IBOutlet weak var issuePost: UITextView!
     
     var issue: Issue?
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,15 +41,15 @@ class IssueDetailViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: Actions
  
     // - Attributions: https://stackoverflow.com/questions/31628246/make-button-open-link-swift
+    // - Attributions: https://useyourloaf.com/blog/openurl-deprecated-in-ios10/
     @IBAction func goToLink(_ sender: UIBarButtonItem) {
         if let url = URL(string: issue!.link){
-            UIApplication.shared.openURL(url)
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
     

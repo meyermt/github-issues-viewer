@@ -34,7 +34,6 @@ class IssueTableViewController: UITableViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: Private methods
@@ -46,10 +45,7 @@ class IssueTableViewController: UITableViewController {
             self.refreshControl?.endRefreshing()
         }
         
-        
-        gitHubClient.requestIssues(state: "open") { (issues: [Issue]) in
-            populateOpenIssues(issues)
-        }
+        gitHubClient.requestIssues(state: "open", completion: populateOpenIssues(_:))
     }
     
     // MARK: Table view overrides

@@ -11,10 +11,13 @@ import UIKit
 class IssueTableViewCell: UITableViewCell {
     
     // MARK: Properties
+    
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var issueTitle: UILabel!
     @IBOutlet weak var issueOwner: UILabel!
     @IBOutlet weak var issueTime: UILabel!
+    
+    // MARK: Base Methods
     
     override func awakeFromNib() {
         super.awakeFromNib()
