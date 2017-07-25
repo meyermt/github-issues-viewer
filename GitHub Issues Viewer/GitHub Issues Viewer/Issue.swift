@@ -19,6 +19,7 @@ class Issue: NSObject, NSCoding {
     var status: GitHubStatus
     var post: String
     var link: String
+    var avatar: String
     
     enum GitHubStatus {
         case open
@@ -34,11 +35,12 @@ class Issue: NSObject, NSCoding {
         static let status = "status"
         static let post = "post"
         static let link = "link"
+        static let avatar = "avatar"
     }
     
     //MARK: Initialization
     
-    init?(title: String, owner: String, createdAt: String, status: GitHubStatus, post: String, link: String) {
+    init?(title: String, owner: String, createdAt: String, status: GitHubStatus, post: String, link: String, avatar: String) {
         
         self.title = title
         self.owner = owner
@@ -46,6 +48,7 @@ class Issue: NSObject, NSCoding {
         self.status = status
         self.post = post
         self.link = link
+        self.avatar = avatar
     }
     
     //MARK: NSCoding
@@ -57,7 +60,8 @@ class Issue: NSObject, NSCoding {
         aCoder.encode(createdAt, forKey: PropertyKey.createdAt)
         aCoder.encode(status, forKey: PropertyKey.status)
         aCoder.encode(post, forKey: PropertyKey.post)
-        aCoder.encode(post, forKey: PropertyKey.link)
+        aCoder.encode(link, forKey: PropertyKey.link)
+        aCoder.encode(avatar, forKey: PropertyKey.avatar)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -71,9 +75,11 @@ class Issue: NSObject, NSCoding {
         
         let post = aDecoder.decodeObject(forKey: PropertyKey.post) as? String
         
-        let link = aDecoder.decodeObject(forKey: PropertyKey.post) as? String
+        let link = aDecoder.decodeObject(forKey: PropertyKey.link) as? String
         
-        self.init(title: title!, owner: owner!, createdAt: createdAt!, status: status!, post: post!, link: link!)
+        let avatar = aDecoder.decodeObject(forKey: PropertyKey.avatar) as? String
+        
+        self.init(title: title!, owner: owner!, createdAt: createdAt!, status: status!, post: post!, link: link!, avatar: avatar!)
     }
     
 }

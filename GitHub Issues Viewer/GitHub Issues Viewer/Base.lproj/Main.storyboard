@@ -9,6 +9,60 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Activity Table View Controller-->
+        <scene sceneID="4an-tw-GTt">
+            <objects>
+                <tableViewController id="UC6-mI-6hB" customClass="ActivityTableViewController" customModule="GitHub_Issues_Viewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" id="Be3-TW-law">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActivityTableViewCell" rowHeight="75" id="fTt-cF-4KQ" customClass="ActivityTableViewCell" customModule="GitHub_Issues_Viewer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="75"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fTt-cF-4KQ" id="Oy9-n3-Xs5">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2GS-KJ-MFn">
+                                            <rect key="frame" x="8" y="13" width="48" height="48"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XqI-XP-oX6">
+                                            <rect key="frame" x="70" y="13" width="297" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pri-T8-wNb">
+                                            <rect key="frame" x="70" y="40" width="297" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="avatarIcon" destination="2GS-KJ-MFn" id="vte-k3-LKj"/>
+                                    <outlet property="issuesOpened" destination="Pri-T8-wNb" id="SqX-Vg-aSR"/>
+                                    <outlet property="user" destination="XqI-XP-oX6" id="ikF-xB-eQj"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="UC6-mI-6hB" id="gC3-OF-n0S"/>
+                            <outlet property="delegate" destination="UC6-mI-6hB" id="aVf-gJ-koN"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="ja6-ql-69B"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LIZ-tg-N3x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1688.8" y="-991.75412293853083"/>
+        </scene>
         <!--Open Issues-->
         <scene sceneID="UWx-rM-gUh">
             <objects>
@@ -245,6 +299,7 @@
                         <segue destination="t22-tk-0jt" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="k1g-d1-5FE" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="VBn-ck-jmK" kind="relationship" relationship="viewControllers" id="x3O-xH-TXA"/>
+                        <segue destination="iXQ-Db-KAM" kind="relationship" relationship="viewControllers" id="qwk-IE-m4c"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -289,13 +344,33 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
         </scene>
+        <!--Activity-->
+        <scene sceneID="pce-fW-BVt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iXQ-Db-KAM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Activity" image="github-empty" id="awj-Wd-3A5"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wCa-B1-fNg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UC6-mI-6hB" kind="relationship" relationship="rootViewController" id="n0K-gL-4SY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LU8-IH-XJs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="-991"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="github-empty" width="25" height="25"/>
         <image name="github-filled" width="25" height="25"/>
         <image name="octocat-empty" width="25" height="25"/>
         <image name="octocat-filled" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZS4-Xi-Lrg"/>
+        <segue reference="day-H0-su2"/>
     </inferredMetricsTieBreakers>
 </document>

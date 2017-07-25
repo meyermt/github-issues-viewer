@@ -19,6 +19,8 @@
 		B3FED5971F255B6D00BB12F9 /* AllIssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FED5961F255B6D00BB12F9 /* AllIssueTableViewCell.swift */; };
 		B3FED5991F25604200BB12F9 /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FED5981F25604200BB12F9 /* IssueDetailViewController.swift */; };
 		B3FED59B1F2580F500BB12F9 /* CircleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FED59A1F2580F500BB12F9 /* CircleViewController.swift */; };
+		B3FED59F1F26B2CF00BB12F9 /* ActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FED59E1F26B2CF00BB12F9 /* ActivityTableViewController.swift */; };
+		B3FED5A11F26B47D00BB12F9 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FED5A01F26B47D00BB12F9 /* ActivityTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		B3FED5961F255B6D00BB12F9 /* AllIssueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllIssueTableViewCell.swift; sourceTree = "<group>"; };
 		B3FED5981F25604200BB12F9 /* IssueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
 		B3FED59A1F2580F500BB12F9 /* CircleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleViewController.swift; sourceTree = "<group>"; };
+		B3FED59E1F26B2CF00BB12F9 /* ActivityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTableViewController.swift; sourceTree = "<group>"; };
+		B3FED5A01F26B47D00BB12F9 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,16 +75,18 @@
 				B3A7446B1F21A1D000C0A6F6 /* AppDelegate.swift */,
 				B31D253D1F23D12D000D9F81 /* IssueTableViewCell.swift */,
 				B3FED5961F255B6D00BB12F9 /* AllIssueTableViewCell.swift */,
+				B3FED5A01F26B47D00BB12F9 /* ActivityTableViewCell.swift */,
 				B3A7446D1F21A1D000C0A6F6 /* IssueTableViewController.swift */,
 				B3A7446F1F21A1D000C0A6F6 /* AllIssueTableViewController.swift */,
+				B3FED59E1F26B2CF00BB12F9 /* ActivityTableViewController.swift */,
 				B3FED59A1F2580F500BB12F9 /* CircleViewController.swift */,
 				B3FED5981F25604200BB12F9 /* IssueDetailViewController.swift */,
 				B31D253F1F23DC56000D9F81 /* GitHubClient.swift */,
+				B3FED5941F2409F500BB12F9 /* Issue.swift */,
 				B3A744711F21A1D000C0A6F6 /* Main.storyboard */,
 				B3A744741F21A1D000C0A6F6 /* Assets.xcassets */,
 				B3A744761F21A1D000C0A6F6 /* LaunchScreen.storyboard */,
 				B3A744791F21A1D000C0A6F6 /* Info.plist */,
-				B3FED5941F2409F500BB12F9 /* Issue.swift */,
 			);
 			path = "GitHub Issues Viewer";
 			sourceTree = "<group>";
@@ -162,8 +168,10 @@
 				B3A744701F21A1D000C0A6F6 /* AllIssueTableViewController.swift in Sources */,
 				B3FED59B1F2580F500BB12F9 /* CircleViewController.swift in Sources */,
 				B3FED5971F255B6D00BB12F9 /* AllIssueTableViewCell.swift in Sources */,
+				B3FED5A11F26B47D00BB12F9 /* ActivityTableViewCell.swift in Sources */,
 				B3A7446C1F21A1D000C0A6F6 /* AppDelegate.swift in Sources */,
 				B3A7446E1F21A1D000C0A6F6 /* IssueTableViewController.swift in Sources */,
+				B3FED59F1F26B2CF00BB12F9 /* ActivityTableViewController.swift in Sources */,
 				B3FED5991F25604200BB12F9 /* IssueDetailViewController.swift in Sources */,
 				B31D253E1F23D12D000D9F81 /* IssueTableViewCell.swift in Sources */,
 				B3FED5951F2409F500BB12F9 /* Issue.swift in Sources */,

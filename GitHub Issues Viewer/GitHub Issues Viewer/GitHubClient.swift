@@ -65,7 +65,7 @@ class GitHubClient {
                         
                         let date = isoFormatter.date(from: issue["created_at"] as! String)
                         let dateString = formatter.string(from: date!)
-                        return Issue(title: issue["title"] as! String, owner: issue["user"]?["login"] as! String, createdAt: dateString, status: status, post: issue["body"] as! String, link: issue["html_url"] as! String)!
+                        return Issue(title: issue["title"] as! String, owner: issue["user"]?["login"] as! String, createdAt: dateString, status: status, post: issue["body"] as! String, link: issue["html_url"] as! String, avatar: issue["user"]?["avatar_url"] as! String)!
                     }
                     completion(self.ghIssues)
                 }
