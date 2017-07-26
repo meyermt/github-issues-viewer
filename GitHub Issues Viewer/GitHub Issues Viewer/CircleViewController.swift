@@ -17,7 +17,10 @@ class CircleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadIssues()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.loadIssues()
     }
 
     override func didReceiveMemoryWarning() {
