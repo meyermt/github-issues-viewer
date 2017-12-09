@@ -1,5 +1,5 @@
-# mpcs51030-2017-summer-assignment-5-meyermt
-mpcs51030-2017-summer-assignment-5-meyermt created by GitHub Classroom
+# GitHub Issues Viewer
+App for viewing issues in a GitHub repo.
 
 ## Overview
 
